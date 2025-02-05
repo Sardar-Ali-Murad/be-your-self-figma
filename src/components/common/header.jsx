@@ -6,7 +6,7 @@ import search from "../../assets/search.svg";
 
 const Header = () => {
   return (
-    <div className="px-[35px] py-[20px] h-[73px] bg-[#FFFFFF] shadow-[0px_4px_4px_0px_#00000040] w-[100%] flex flex-row items-center justify-between">
+    <div className="pl-[35px] py-[20px] pr-[88px] h-[73px] bg-[#FFFFFF] shadow-[0px_4px_4px_0px_#00000040] w-[100%] flex flex-row items-center justify-between">
       <h1 className="font-inter text-[29.44px] font-medium leading-[35.63px] text-[#1B1919]">
         Overview
       </h1>
