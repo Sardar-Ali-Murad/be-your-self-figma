@@ -13,7 +13,7 @@ import arrowUp from "../../assets/arrow-up.svg";
 
 const Sidebar = () => {
   return (
-    <div className="min-h-[100vh] bg-[#1D345C] w-[300px] pt-[26px]">
+    <div className="min-h-[100vh] bg-[#1D345C] pt-[26px]">
       <h1 className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF] text-center">
         LOGO
       </h1>

@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         istok: ["Istok Web", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },
