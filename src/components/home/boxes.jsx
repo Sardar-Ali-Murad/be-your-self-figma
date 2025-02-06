@@ -7,7 +7,7 @@ import vector from "../../assets/vector.svg";
 
 const Boxes = () => {
   return (
-    <div className="grid grid-cols-4 gap-[30px]">
+    <div className="grid grid-cols-4 gap-[16px]">
       <div className="rounded-[9px] bg-[#1D345C] shadow-[0px_2.7px_2.7px_0px_#00000040] w-[100%] p-[15px] flex flex-col justify-between">
         <div>
           <div className="flex justify-between items-center">
