@@ -64,7 +64,7 @@ const Management = () => {
         </div>
         {/* Image Portion */}
         <div className="grid grid-cols-3">
-          <div className="mt-[30px] shadow-[0px_3.96px_3.96px_0px_#00000040] px-[29px] pt-[8px] pb-[60px] flex flex-col gap-[16px]">
+          <div className="mt-[30px] rounded-[11px] shadow-[0px_3.96px_3.96px_0px_#00000040] px-[29px] pt-[8px] pb-[60px] flex flex-col gap-[16px]">
             <img src={img} className="w-[272px] h-[182px]" />
             <div className="flex flex-col gap-[1px]">
               <h1 className="font-inter font-medium text-[26px] leading-[33px] text-[#000000]">
