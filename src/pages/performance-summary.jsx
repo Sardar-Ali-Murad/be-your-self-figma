@@ -8,10 +8,10 @@ import BottomCards from "../components/performance-summary/bottom-cards";
 const PerformanceSummary = () => {
   return (
     <div className="flex">
-      <div className="w-[300px]">
+      <div className="flex-[1]">
         <Sidebar />
       </div>
-      <div className="flex-grow">
+      <div className="flex-[4]">
         <Header />
         <div className="pt-[33px] pl-[33px] pr-[88px] pb-[88px] flex flex-col gap-[27px]">
           <PageHeader />
