@@ -17,7 +17,10 @@ const Sidebar = () => {
   const [openDashboard, setOpenDashboard] = React.useState(false);
   return (
     <div className="h-[100%] bg-[#1D345C] pt-[26px]">
-      <h1 className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF] text-center">
+      <h1
+        className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF] text-center cursor-pointer"
+        onClick={() => navigate("/")}
+      >
         LOGO
       </h1>
       <div className="mt-[40px] flex flex-col gap-[52px]">
@@ -27,10 +30,7 @@ const Sidebar = () => {
             onClick={() => setOpenDashboard(!openDashboard)}
           >
             <img src={dashboard} className="h-[27px] w-[27px]" />
-            <p
-              className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#1B1919]"
-              onClick={() => navigate("/")}
-            >
+            <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#1B1919]">
               Dashboard
             </p>
             <img src={arrowUp} className="ml-[11px]" />
