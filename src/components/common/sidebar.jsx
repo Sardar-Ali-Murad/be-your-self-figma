@@ -82,6 +82,7 @@ const Sidebar = () => {
           onClick={() => {
             setActive("management");
             setOpenDashboard(false);
+            navigate("/management")
           }}
         >
           <img
