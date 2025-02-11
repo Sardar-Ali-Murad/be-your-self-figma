@@ -45,7 +45,7 @@ const Sidebar = () => {
               </p>
               <p
                 className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
-                onClick={() => navigate("/performance-summary")}
+                onClick={() => navigate("/alerts")}
               >
                 Notifications & Alerts
               </p>
