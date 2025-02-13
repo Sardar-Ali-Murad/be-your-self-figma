@@ -14,11 +14,38 @@ import people from "../../assets/manage-users.svg";
 import activeDashboard from "../../assets/active-dashboard.svg";
 import darkEvent from "../../assets/dark-event.svg";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [openDashboard, setOpenDashboard] = React.useState(false);
   const [active, setActive] = React.useState("home");
+
+  React.useEffect(() => {
+    if (location.pathname === "/") {
+      setActive("home");
+    }
+    if (location.pathname === "/performance-summary") {
+      setActive("home");
+      setOpenDashboard(true);
+    }
+    if (location.pathname === "/alerts") {
+      setActive("home");
+      setOpenDashboard(true);
+    }
+    if (location.pathname === "/management") {
+      setActive("management");
+    }
+    if (
+      location.pathname === "/live-event" ||
+      location.pathname === "/physical-event" ||
+      location.pathname === "/fan-forums"
+    ) {
+      setActive("event");
+      setOpenDashboard(true);
+    }
+  }, [location]);
   return (
     <div className="h-[100%] bg-[#1D345C] pt-[26px]">
       <h1
@@ -127,7 +154,6 @@ const Sidebar = () => {
               Events
             </p>
             {active === "event" && <img src={arrowUp} className="ml-[11px]" />}
-
           </div>
           {openDashboard && active === "event" && (
             <div className="ml-[40px] mr-[26px] mt-[20px]">
