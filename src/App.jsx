@@ -9,6 +9,7 @@ import Sidebar from "./components/common/sidebar";
 import Header from "./components/common/header";
 import LiveEvent from "./pages/live-event";
 import PhysicalEvent from "./pages/physical-event";
+import FanForums from "./pages/fan-forums";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
               <Route path="/management" element={<ManagementPage />} />
               <Route path="/live-event" element={<LiveEvent />} />
               <Route path="/physical-event" element={<PhysicalEvent />} />
+              <Route path="/fan-forums" element={<FanForums />} />
             </Routes>
           </div>
         </div>
