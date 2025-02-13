@@ -8,6 +8,7 @@ import ManagementPage from "./pages/management";
 import Sidebar from "./components/common/sidebar";
 import Header from "./components/common/header";
 import LiveEvent from "./pages/live-event";
+import PhysicalEvent from "./pages/physical-event";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
               <Route path="/alerts" element={<Alerts />} />
               <Route path="/management" element={<ManagementPage />} />
               <Route path="/live-event" element={<LiveEvent />} />
+              <Route path="/physical-event" element={<PhysicalEvent />} />
             </Routes>
           </div>
         </div>
