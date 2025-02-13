@@ -12,6 +12,7 @@ import logout from "../../assets/logout.svg";
 import arrowUp from "../../assets/arrow-up.svg";
 import people from "../../assets/manage-users.svg";
 import activeDashboard from "../../assets/active-dashboard.svg";
+import darkEvent from "../../assets/dark-event.svg";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
@@ -55,7 +56,7 @@ const Sidebar = () => {
             </p>
             {active === "home" && <img src={arrowUp} className="ml-[11px]" />}
           </div>
-          {openDashboard && (
+          {openDashboard && active === "home" && (
             <div className="ml-[40px] mr-[26px] mt-[20px]">
               <p
                 className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
@@ -82,7 +83,7 @@ const Sidebar = () => {
           onClick={() => {
             setActive("management");
             setOpenDashboard(false);
-            navigate("/management")
+            navigate("/management");
           }}
         >
           <img
@@ -98,16 +99,60 @@ const Sidebar = () => {
           >
             Management
           </p>
-          {active === "management" && (
-            <img src={arrowUp} className="ml-[11px]" />
+        </div>
+        <div>
+          <div
+            className={`${
+              active === "event"
+                ? "flex pl-[20px] gap-[17px]  items-center cursor-pointer  w-[100%] h-[70px] rounded-l-[37px] rounded-r-none bg-[#FFFFFF]"
+                : "flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]"
+            }`}
+            onClick={() => {
+              setActive("event");
+              setOpenDashboard(!openDashboard);
+              navigate("/live-event");
+            }}
+          >
+            <img
+              src={active === "event" ? darkEvent : events}
+              className="h-[27px] w-[27px]"
+            />{" "}
+            <p
+              className={`${
+                active === "event"
+                  ? "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#1B1919]"
+                  : "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]"
+              }`}
+            >
+              Events
+            </p>
+            {active === "event" && <img src={arrowUp} className="ml-[11px]" />}
+
+          </div>
+          {openDashboard && active === "event" && (
+            <div className="ml-[40px] mr-[26px] mt-[20px]">
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/live-event")}
+              >
+                Create Live Event
+              </p>
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/physical-event")}
+              >
+                Create physical event
+              </p>
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/fan-forums")}
+              >
+                fanForums
+              </p>
+            </div>
           )}
         </div>
-        <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
-          <img src={events} className="h-[27px] w-[27px]" />
-          <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]">
-            Events
-          </p>
-        </div>
+
         <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
           <img src={analytics} className="h-[27px] w-[27px]" />
           <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]">
