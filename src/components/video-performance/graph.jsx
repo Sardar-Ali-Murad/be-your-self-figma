@@ -8,20 +8,23 @@ const Trends = () => {
     <div className="rounded-[3px] border-[1px] border-[#00000026] border-opacity-15 shadow-[0px_26.37px_21.09px_0px_#0000000B] backdrop-blur-[39.455265045166016px] pt-[29px] pl-[29px] pb-[29px] pr-[100px]">
       <div className="flex flex-row justify-between">
         <h1 className="font-poppins text-[21.25px] font-semibold leading-[31.87px] text-[#1C2D70]">
-          Subscriber Growth
+          Engagements Trends
         </h1>
         <div className="flex flex-row gap-[15px] items-center">
           <div className="bg-[#FFFFFF] shadow-[0px_3.42px_3.42px_0px_rgba(0,0,0,0.25)] py-[9px] gap-[8px] px-[11px]  rounded-[6px] flex justify-between items-center">
             <p className="text-[#000000] text-[17px] leading-[24px] font-poppins">
-              Last 30 Days
+              Days
             </p>
-            <img src={down} />
           </div>{" "}
           <div className="bg-[#FFFFFF] shadow-[0px_3.42px_3.42px_0px_rgba(0,0,0,0.25)] py-[9px] gap-[8px] px-[11px]  rounded-[6px] flex justify-between items-center">
             <p className="text-[#000000] text-[17px] leading-[24px] font-poppins">
-              Compare with previous Period
+              Weekly
             </p>
-            <img src={down} />
+          </div>{" "}
+          <div className="bg-[#FFFFFF] shadow-[0px_3.42px_3.42px_0px_rgba(0,0,0,0.25)] py-[9px] gap-[8px] px-[11px]  rounded-[6px] flex justify-between items-center">
+            <p className="text-[#000000] text-[17px] leading-[24px] font-poppins">
+              Monthly
+            </p>
           </div>{" "}
         </div>
       </div>

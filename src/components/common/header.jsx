@@ -23,7 +23,13 @@ const Header = () => {
           ? "Create Live Event"
           : location.pathname === "/physical-event"
           ? "Create Physical Event"
-          : "Forum Management"}
+          : location.pathname === "/fan-forums"
+          ? "Forum Management"
+          : location.pathname === "/subscriber-growth"
+          ? "Subscriber Growth"
+          : location.pathname === "/video-performance"
+          ? "Video Performance"
+          : "Revenue Insights"}
       </h1>
       <div className="flex flex-row items-center gap-[40px]">
         <div className="flex flex-row items-center gap-[11px]">
