@@ -3,14 +3,13 @@ import { PieChart, Pie, Cell } from "recharts";
 
 const RADIAN = Math.PI / 180;
 
-const AreaChart = ({ labels, descriptions, colors, data }) => {
+const PieChartComponent = ({ labels, descriptions, colors, data }) => {
   const renderCustomizedLabel = ({
     cx,
     cy,
     midAngle,
     innerRadius,
     outerRadius,
-    percent,
     index,
   }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -23,18 +22,19 @@ const AreaChart = ({ labels, descriptions, colors, data }) => {
         y={y}
         fill="white"
         textAnchor="middle"
-        dominantBaseline="central"      >
+        dominantBaseline="central"
+      >
         <tspan
           x={x}
           y={y - 10}
-          className="font-poppins text-[13.05px] font-medium leading-[19.57px] text-[#FFFFFF] drop-shadow-[0px_3.27px_3.27px_#00000040]"
+          className="font-poppins text-[16px] font-medium leading-[19.57px] text-[#FFFFFF] drop-shadow-[0px_3.27px_3.27px_#00000040]"
         >
           {labels[index]}
         </tspan>
         <tspan
           x={x}
           y={y + 10}
-          className="font-poppins text-[9px] font-medium leading-[10.61px] text-[#FFFFFF] drop-shadow-[0px_1.77px_1.77px_#00000040]"
+          className="font-poppins text-[16px] font-medium leading-[10.61px] text-[#FFFFFF] drop-shadow-[0px_1.77px_1.77px_#00000040]"
         >
           {descriptions[index]}
         </tspan>
@@ -65,4 +65,4 @@ const AreaChart = ({ labels, descriptions, colors, data }) => {
   );
 };
 
-export default AreaChart;
+export default PieChartComponent;
