@@ -12,6 +12,7 @@ import logout from "../../assets/logout.svg";
 import arrowUp from "../../assets/arrow-up.svg";
 import people from "../../assets/manage-users.svg";
 import activeDashboard from "../../assets/active-dashboard.svg";
+import darkAudienceAnalytics from "../../assets/dark-audience-analytics.svg";
 import darkEvent from "../../assets/dark-event.svg";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -43,6 +44,14 @@ const Sidebar = () => {
       location.pathname === "/fan-forums"
     ) {
       setActive("event");
+      setOpenDashboard(true);
+    }
+    if (
+      location.pathname === "/subscriber-growth" ||
+      location.pathname === "/video-performance" ||
+      location.pathname === "/revenue-insights"
+    ) {
+      setActive("revenue");
       setOpenDashboard(true);
     }
   }, [location]);
@@ -179,11 +188,58 @@ const Sidebar = () => {
           )}
         </div>
 
-        <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
-          <img src={analytics} className="h-[27px] w-[27px]" />
-          <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]">
-            Analytics
-          </p>
+        <div>
+          <div
+            className={`${
+              active === "revenue"
+                ? "flex pl-[20px] gap-[17px]  items-center cursor-pointer  w-[100%] h-[70px] rounded-l-[37px] rounded-r-none bg-[#FFFFFF]"
+                : "flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]"
+            }`}
+            onClick={() => {
+              setActive("revenue");
+              setOpenDashboard(!openDashboard);
+              navigate("/subscriber-growth");
+            }}
+          >
+            <img
+              src={active === "revenue" ? darkAudienceAnalytics : analytics}
+              className="h-[27px] w-[27px]"
+            />
+            <p
+              className={`${
+                active === "revenue"
+                  ? "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#1B1919]"
+                  : "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]"
+              }`}
+            >
+              Analytics
+            </p>
+            {active === "revenue" && (
+              <img src={arrowUp} className="ml-[11px]" />
+            )}
+          </div>
+          {openDashboard && active === "revenue" && (
+            <div className="ml-[40px] mr-[26px] mt-[20px]">
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/subscriber-growth")}
+              >
+                Subscriber Growth
+              </p>
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/video-performance")}
+              >
+                Video Performance
+              </p>
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/revenue-insights")}
+              >
+                Revenue Insights
+              </p>
+            </div>
+          )}
         </div>
         <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
           <img src={earning} className="h-[27px] w-[27px]" />
