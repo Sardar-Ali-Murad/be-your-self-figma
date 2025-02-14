@@ -4,7 +4,7 @@ import download from "../../assets/download.svg";
 import filter from "../../assets/light-filter.svg";
 import share from "../../assets/share.svg";
 
-const Cards = () => {
+const Cards = ({name}) => {
   return (
     <div>
       <div className="flex gap-[5px] justify-end mb-[20px]">
@@ -32,21 +32,25 @@ const Cards = () => {
           title="Total Subscriber"
           subTitle="248.5K"
           footerTitle="+12.4% vs last month"
+          name={name}
         />
         <Card
           title="Total Subscriber"
           subTitle="248.5K"
           footerTitle="+12.4% vs last month"
+          name={name}
         />
         <Card
           title="Total Subscriber"
           subTitle="248.5K"
           footerTitle="+12.4% vs last month"
+          name={name}
         />
         <Card
           title="Total Subscriber"
           subTitle="248.5K"
           footerTitle="+12.4% vs last month"
+          name={name}
         />
       </div>
     </div>

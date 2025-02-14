@@ -6,7 +6,7 @@ import Body from "../components/video-performance/body";
 const VideoPerformance = () => {
   return (
     <div className="pt-[33px] pl-[33px] pr-[88px] pb-[88px] flex flex-col gap-[27px]">
-      <Cards />
+      <Cards name="video" />
       <Graph />
       <Body />
     </div>

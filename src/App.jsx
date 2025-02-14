@@ -12,6 +12,7 @@ import PhysicalEvent from "./pages/physical-event";
 import FanForums from "./pages/fan-forums";
 import SubscriberGrowth from "./pages/subscriber-growth";
 import VideoPerformance from "./pages/video-performance";
+import RevenueInsights from "./pages/revenue-insights";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
               <Route path="/fan-forums" element={<FanForums />} />
               <Route path="/subscriber-growth" element={<SubscriberGrowth />} />
               <Route path="/video-performance" element={<VideoPerformance />} />
+              <Route path="/revenue-insights" element={<RevenueInsights />} />
             </Routes>
           </div>
         </div>
