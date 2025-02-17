@@ -29,7 +29,13 @@ const Header = () => {
           ? "Subscriber Growth"
           : location.pathname === "/video-performance"
           ? "Video Performance"
-          : "Revenue Insights"}
+          : location.pathname === "/revenue-insights"
+          ? "Revenue Insights"
+          : location.pathname === "/subscription-plan"
+          ? "Subscription Plan"
+          : location.pathname === "/event-ticketing"
+          ? "Event Ticketing & Sales"
+          : "Product Sales"}
       </h1>
       <div className="flex flex-row items-center gap-[40px]">
         <div className="flex flex-row items-center gap-[11px]">

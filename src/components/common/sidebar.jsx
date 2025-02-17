@@ -14,6 +14,7 @@ import people from "../../assets/manage-users.svg";
 import activeDashboard from "../../assets/active-dashboard.svg";
 import darkAudienceAnalytics from "../../assets/dark-audience-analytics.svg";
 import darkEvent from "../../assets/dark-event.svg";
+import activeEarningIcon from "../../assets/active-earning-icon.svg";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -21,6 +22,9 @@ const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [openDashboard, setOpenDashboard] = React.useState(false);
+  const [openEvents, setOpenEvents] = React.useState(false);
+  const [openAnalytics, setOpenAnalytics] = React.useState(false);
+  const [openEarning, setOpenEarning] = React.useState(false);
   const [active, setActive] = React.useState("home");
 
   React.useEffect(() => {
@@ -44,7 +48,7 @@ const Sidebar = () => {
       location.pathname === "/fan-forums"
     ) {
       setActive("event");
-      setOpenDashboard(true);
+      setOpenEvents(true);
     }
     if (
       location.pathname === "/subscriber-growth" ||
@@ -52,7 +56,15 @@ const Sidebar = () => {
       location.pathname === "/revenue-insights"
     ) {
       setActive("revenue");
-      setOpenDashboard(true);
+      setOpenAnalytics(true);
+    }
+    if (
+      location.pathname === "/subscription-plan" ||
+      location.pathname === "/event-ticketing" ||
+      location.pathname === "/product-sales"
+    ) {
+      setActive("earning");
+      setOpenEarning(true);
     }
   }, [location]);
   return (
@@ -72,7 +84,10 @@ const Sidebar = () => {
                 : "flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]"
             }`}
             onClick={() => {
-              setOpenDashboard(!openDashboard);
+              setOpenDashboard((pre) => !pre);
+              setOpenAnalytics(false);
+              setOpenEvents(false);
+              setOpenEarning(false);
               setActive("home");
               navigate("/");
             }}
@@ -119,6 +134,9 @@ const Sidebar = () => {
           onClick={() => {
             setActive("management");
             setOpenDashboard(false);
+            setOpenAnalytics(false);
+            setOpenEvents(false);
+            setOpenEarning(false);
             navigate("/management");
           }}
         >
@@ -145,7 +163,10 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               setActive("event");
-              setOpenDashboard(!openDashboard);
+              setOpenEvents((pre) => !pre);
+              setOpenAnalytics(false);
+              setOpenDashboard(false);
+              setOpenEarning(false);
               navigate("/live-event");
             }}
           >
@@ -164,7 +185,7 @@ const Sidebar = () => {
             </p>
             {active === "event" && <img src={arrowUp} className="ml-[11px]" />}
           </div>
-          {openDashboard && active === "event" && (
+          {openEvents && active === "event" && (
             <div className="ml-[40px] mr-[26px] mt-[20px]">
               <p
                 className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
@@ -197,7 +218,10 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               setActive("revenue");
-              setOpenDashboard(!openDashboard);
+              setOpenAnalytics((pre) => !pre);
+              setOpenEvents(false);
+              setOpenDashboard(false);
+              setOpenEarning(false);
               navigate("/subscriber-growth");
             }}
           >
@@ -218,7 +242,7 @@ const Sidebar = () => {
               <img src={arrowUp} className="ml-[11px]" />
             )}
           </div>
-          {openDashboard && active === "revenue" && (
+          {openAnalytics && active === "revenue" && (
             <div className="ml-[40px] mr-[26px] mt-[20px]">
               <p
                 className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
@@ -241,11 +265,61 @@ const Sidebar = () => {
             </div>
           )}
         </div>
-        <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
-          <img src={earning} className="h-[27px] w-[27px]" />
-          <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]">
-            Earning & Sales
-          </p>
+        <div>
+          <div
+            className={`${
+              active === "earning"
+                ? "flex pl-[20px] gap-[17px]  items-center cursor-pointer  w-[100%] h-[70px] rounded-l-[37px] rounded-r-none bg-[#FFFFFF]"
+                : "flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]"
+            }`}
+            onClick={() => {
+              setActive("earning");
+              setOpenEarning((pre) => !pre);
+              setOpenEvents(false);
+              setOpenDashboard(false);
+              setOpenAnalytics(false);
+              navigate("/subscription-plan");
+            }}
+          >
+            <img
+              src={active === "earning" ? activeEarningIcon : earning}
+              className="h-[27px] w-[27px]"
+            />
+            <p
+              className={`${
+                active === "earning"
+                  ? "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#1B1919]"
+                  : "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]"
+              }`}
+            >
+              {active == "earning" ? "Earning" : "Earning & Sales"}
+            </p>
+            {active === "earning" && (
+              <img src={arrowUp} className="ml-[11px]" />
+            )}
+          </div>
+          {openEarning && active === "earning" && (
+            <div className="ml-[40px] mr-[26px] mt-[20px]">
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/subscription-plan")}
+              >
+                Subscription Plan
+              </p>
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/event-ticketing")}
+              >
+                Event Ticketing & Sales
+              </p>
+              <p
+                className="font-istok font-normal text-[19.14px] leading-[40px] text-[#FFFFFF] cursor-pointer"
+                onClick={() => navigate("/product-sales")}
+              >
+                Product Sales
+              </p>
+            </div>
+          )}
         </div>
         <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
           <img src={ad} className="h-[27px] w-[27px]" />
