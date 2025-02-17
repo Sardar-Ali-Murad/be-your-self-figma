@@ -10,6 +10,13 @@ const card = ({ title, subTitle, footerTitle, name }) => {
           {title}
         </h1>
         {name === "revenue" && <img src={revenue} />}
+        {name == "subscription-plan" && (
+          <div className="w-[60px] h-[20px] rounded-[4px] bg-[#FFFFFF] flex justify-center items-center">
+            <p className="text-[#1D345C] font-istok text-[15px] leading-[21px]">
+              +12.5%
+            </p>
+          </div>
+        )}
       </div>
       <h1 className="font-inter text-[28.97px] font-medium leading-[35.06px] text-[#FFFFFF]">
         {subTitle}
