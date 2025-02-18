@@ -15,6 +15,7 @@ import VideoPerformance from "./pages/video-performance";
 import RevenueInsights from "./pages/revenue-insights";
 import SubscriptionPlan from "./pages/subscription-plan";
 import EventTicketing from "./pages/event-ticketing";
+import ProductSales from "./pages/product-sales";
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
               <Route path="/revenue-insights" element={<RevenueInsights />} />
               <Route path="/subscription-plan" element={<SubscriptionPlan />} />
               <Route path="/event-ticketing" element={<EventTicketing />} />
+              <Route path="/product-sales" element={<ProductSales />} />
             </Routes>
           </div>
         </div>
