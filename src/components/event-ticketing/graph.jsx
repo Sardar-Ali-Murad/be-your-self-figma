@@ -4,8 +4,8 @@ import BarChartComponent from "../common/bar-chart";
 
 const Graphs = () => {
   return (
-    <div className="grid grid-cols-2 gap-[34px]">
-      <div className="shadow-[0px_4px_4px_0px_#00000040]  rounded-[2px] px-[12px] pt-[8px] pb-[37px] border border-[1px] border-[#00000033]">
+    <div className="grid grid-cols-3 gap-[34px]">
+      <div className="shadow-[0px_4px_4px_0px_#00000040] col-span-2  rounded-[2px] px-[12px] pt-[8px] pb-[37px] border border-[1px] border-[#00000033]">
         <div className="flex justify-between items-center">
           <h1 className="font-istok font-bold text-[18px] leading-[26px] text-[#1D345C]">
             Ticket Sales Trend
@@ -27,25 +27,23 @@ const Graphs = () => {
         </div>
       </div>
       {/* Second */}
-      <div className="shadow-[0px_4px_4px_0px_#00000040]  rounded-[2px] px-[12px] pt-[8px] pb-[37px] border border-[1px] border-[#00000033]">
+      <div className="shadow-[0px_4px_4px_0px_#00000040] col-span-1 rounded-[2px] px-[12px] pt-[8px] pb-[37px] border border-[1px] border-[#00000033]">
         <h1 className="font-istok font-bold text-[18px] leading-[26px] text-[#1D345C]">
-        Ticket Type Breakdown
+          Ticket Type Breakdown
         </h1>
-        <div className="mt-[9px] rounded-[2px] flex justify-center items-center shadow-[0px_4px_4px_0px_#00000040] ">
-          <div className=" py-[25px] flex flex-row gap-[10px] items-center">
-            <PieChartComponent
-              colors={["#1D345C", "#9C6DDF"]}
-              labels={["65 %", "35 %"]}
-              descriptions={["Mobile app", "website ticket Sale"]}
-              data={[
-                {
-                  name: "Medium",
-                  value: 55,
-                },
-                { name: "High", value: 45 },
-              ]}
-            />
-          </div>
+        <div className=" py-[25px] flex flex-row gap-[10px] items-center">
+          <PieChartComponent
+            colors={["#1D345C", "#9C6DDF"]}
+            labels={["65 %", "35 %"]}
+            descriptions={["Mobile app", "website ticket Sale"]}
+            data={[
+              {
+                name: "Medium",
+                value: 55,
+              },
+              { name: "High", value: 45 },
+            ]}
+          />
         </div>
       </div>
       {/* Secoond */}
