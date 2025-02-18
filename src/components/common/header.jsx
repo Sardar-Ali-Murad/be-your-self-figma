@@ -35,7 +35,9 @@ const Header = () => {
           ? "Subscription Plan"
           : location.pathname === "/event-ticketing"
           ? "Event Ticketing & Sales"
-          : "Product Sales"}
+          : location.pathname === "/product-sales"
+          ? "Product Sales"
+          : "Messaging"}
       </h1>
       <div className="flex flex-row items-center gap-[40px]">
         <div className="flex flex-row items-center gap-[11px]">

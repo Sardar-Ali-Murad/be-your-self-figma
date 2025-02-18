@@ -4,7 +4,7 @@ import dashboard from "../../assets/dashboard.svg";
 import events from "../../assets/events.svg";
 import analytics from "../../assets/analytics.svg";
 import earning from "../../assets/earning.svg";
-import ad from "../../assets/ad.svg";
+import activeMessaging from "../../assets/active-messaging.svg";
 import messaging from "../../assets/messaging.svg";
 import notification from "../../assets/notification.svg";
 import settings from "../../assets/settings.svg";
@@ -30,6 +30,9 @@ const Sidebar = () => {
   React.useEffect(() => {
     if (location.pathname === "/") {
       setActive("home");
+    }
+    if (location.pathname === "/messaging") {
+      setActive("messaging");
     }
     if (location.pathname === "/performance-summary") {
       setActive("home");
@@ -321,15 +324,33 @@ const Sidebar = () => {
             </div>
           )}
         </div>
-        <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
-          <img src={ad} className="h-[27px] w-[27px]" />
-          <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]">
-            Ad Management{" "}
-          </p>
-        </div>
-        <div className="flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]">
-          <img src={messaging} className="h-[27px] w-[27px]" />
-          <p className="font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]">
+
+        <div
+          className={`${
+            active === "messaging"
+              ? "flex pl-[20px] gap-[17px]  items-center cursor-pointer  w-[100%] h-[70px] rounded-l-[37px] rounded-r-none bg-[#FFFFFF]"
+              : "flex pl-[20px] gap-[17px]  items-center cursor-pointer w-[100%]"
+          }`}
+          onClick={() => {
+            setActive("messaging");
+            setOpenDashboard(false);
+            setOpenAnalytics(false);
+            setOpenEvents(false);
+            setOpenEarning(false);
+            navigate("/messaging");
+          }}
+        >
+          <img
+            src={active === "messaging" ? activeMessaging : messaging}
+            className="h-[27px] w-[27px]"
+          />
+          <p
+            className={`${
+              active === "messaging"
+                ? "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#1B1919]"
+                : "font-istok text-[22.97px] font-bold leading-[33.06px] text-[#FFFFFF]"
+            }`}
+          >
             Messaging
           </p>
         </div>
